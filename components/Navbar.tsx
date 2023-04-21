@@ -66,7 +66,8 @@ const Navbar = () => {
                 >
                     <p className="text-white text-sm">Browse</p>
                     <BsChevronDown
-                        className={`w-4 text-white fill-white transition ${
+                        size={20}
+                        className={`w-4 md:w-7 text-white fill-white transition ${
                             showMobileMenu ? "rotate-180" : "rotate-0"
                         }`}
                     />
@@ -74,16 +75,16 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-row ml-auto gap-7 items-center">
                     <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-                        <BsSearch className="w-6" />
+                        <BsSearch size={20} className="w-4 md:w-7" />
                     </div>
                     <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-                        <BsBell className="w-6" />
+                        <BsBell size={20} className="w-4 md:w-7" />
                     </div>
                     <div
                         onClick={toggleAccountMenu}
                         className="flex flex-row items-center gap-2 cursor-pointer relative"
                     >
-                        <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
+                        <div className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-md overflow-hidden">
                             <Image
                                 draggable={false}
                                 className="h-max object-contain"
@@ -94,7 +95,8 @@ const Navbar = () => {
                             />
                         </div>
                         <BsChevronDown
-                            className={`w-4 text-white fill-white transition ${
+                            size={20}
+                            className={`w-4 md:w-7 text-white fill-white transition ${
                                 showAccountMenu ? "rotate-180" : "rotate-0"
                             }`}
                         />
