@@ -5,6 +5,8 @@ import PlayButton from "@/components/PlayButton"
 import FavoriteButton from "@/components/FavoriteButton"
 import useInfoModal from "@/hooks/useInfoModal"
 import useMovie from "@/hooks/useMovie"
+import SoundButton from "./SoundButton"
+import usePlayerSound from "@/hooks/usePlayerSound"
 
 interface InfoModalProps {
     visible?: boolean
@@ -16,6 +18,8 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
 
     const { movieId } = useInfoModal()
     const { data = {} } = useMovie(movieId)
+
+    const {isPlayingSound} = usePlayerSound()
 
     useEffect(() => {
         setIsVisible(!!visible)
@@ -44,7 +48,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
                         <video
                             poster={data?.thumbnailUrl}
                             autoPlay
-                            muted
+                            muted={isPlayingSound}
                             loop
                             src={data?.videoUrl}
                             className="w-full brightness-[60%] object-cover h-full"
@@ -63,6 +67,9 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
                                 <PlayButton movieId={data?.id} />
                                 <FavoriteButton movieId={data?.id} />
                             </div>
+                        </div>
+                        <div className="absolute bottom-[10%] right-10">
+                            <SoundButton />
                         </div>
                     </div>
 
